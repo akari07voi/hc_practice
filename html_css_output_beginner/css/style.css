@@ -13,11 +13,6 @@ h1 span {
   border-bottom: 1px solid #232934;
 }
 
-.container {
-  display: grid;
-  grid-template-rows: 80px 600px auto 30px;
-}
-
 header {
   max-width: 960px;
   width: 100%;
@@ -53,10 +48,9 @@ header ul li {
 }
 
 main {
-  width: 883.2px;
   margin: 0 auto;
   padding: 38.4px;
-  
+
 }
 
 .article1 {
@@ -115,7 +109,6 @@ main {
 }
 
 footer {
-  width: 960px;
   margin: 0 auto;
 }
 
@@ -188,9 +181,5 @@ footer {
     grid-template-columns: 100%;
     grid-template-rows: repeat(3, auto);
     gap: 30px;
-  }
-
-  .profile_images figure img{
-    width: auto;
   }
 }
