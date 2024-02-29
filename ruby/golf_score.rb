@@ -1,35 +1,25 @@
+# マッピング用スコア
+SCORE_MAPPING = {
+  -4 => 'コンドル',
+  -3 => 'アルバトロス',
+  -2 => 'イーグル',
+  -1 => 'バーディ',
+  1 => 'ボギー'
+}
+
 # スコア判定
 def golf_score(player_score, par)
   # 規定打数＝プレイヤ打数
   return 'パー' if player_score === par
 
   # それ以外
-  if player_score > par
-    # 規定打数より多い場合
-    case player_score
-    when par + 1
-      'ボギー'
-    when par + 2
-      '2ボギー'
-    else
-      "#{player_score - par}ボギー"
-    end
+  result = player_score - par
+  if player_score === 1 && par != 5
+    'ホールインワン'
+  elsif result >= 2
+    "#{result}ボギー"
   else
-    # 規定打数以下
-    case player_score
-    when 1
-      if par === 5
-        'コンドル'
-      else
-        'ホールインワン'
-      end
-    when par - 1
-      'バーディ'
-    when par - 2
-      'イーグル'
-    when par - 3
-      'アルバトロス'
-    end
+    SCORE_MAPPING[result]
   end
 end
 
