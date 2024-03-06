@@ -7,7 +7,7 @@ class VendingMachine
     # ジュース情報格納リスト
     @juice_list = []
     @juice_list = juice_list.map do |juice|
-      [juice.name, { name: juice.name, price: juice.price, count: START_STOCK }]
+      [juice.name, { juice: juice, count: START_STOCK }]
     end
     @proceeds = 0
   end
@@ -45,7 +45,7 @@ class VendingMachine
   # ジュース購入
   def buy(juice_num, suica)
     selected_juice = @juice_list[juice_num]
-    select_juice_price = selected_juice[1][:price]
+    select_juice_price = selected_juice[1][:juice].price
     if select_juice_price <= suica.balance && selected_juice[1][:count] > 0
       # 在庫減
       selected_juice[1][:count] -= 1
