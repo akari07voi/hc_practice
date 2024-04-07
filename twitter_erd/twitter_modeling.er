@@ -16,7 +16,7 @@
 [tweets] {bgcolor: "#ececfc"}
   *id {label: "bigint, not null uniq"}
   user_id {label: "bigint, not null, FK(users)"}
-  tweet {label: "varchar(140), not null"}
+  content {label: "varchar(140), not null"}
   created_at { label: "datetime, not null"}
   updated_at { label: "datetime, not null"}
 
@@ -36,16 +36,16 @@
 
 [followers] {bgcolor: "#d0e0d0"}
   *id {label: "bigint, not null, uniq"}
-  followuser_id {label: "bigint, not null, FK(users)"}
-  followeruser_id {label: "bigint, not null, FK(users)l"}
+  follow_user_id {label: "bigint, not null, FK(users)"}
+  follower_user_id {label: "bigint, not null, FK(users)l"}
   created_at { label: "datetime, not null"}
   updated_at { label: "datetime, not null"}
 
 [messages] {bgcolor: "#ecf2fc"}
   *id {label: "bigint, not null, uniq"}
-  fromuser_id {label: "bigint, not null, FK(users)"}
-  touser_id {label: "bigint, not null, FK(users)"}
-  message {label: "varchar(1000), not null"}
+  from_user_id {label: "bigint, not null, FK(users)"}
+  to_user_id {label: "bigint, not null, FK(users)"}
+  content {label: "varchar(1000), not null"}
   senddate {label: "datetime, not null"}
   created_at { label: "datetime, not null"}
   updated_at { label: "datetime, not null"}
